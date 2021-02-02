@@ -11,7 +11,7 @@ module.exports = merge(commonConfig, {
     devtool: 'eval-cheap-source-map',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, '../dist')
     },
     devServer: {
         port: 8088,
@@ -19,6 +19,8 @@ module.exports = merge(commonConfig, {
         contentBase: './dist'
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, '../public/index.html')
+        })
     ]
 })
