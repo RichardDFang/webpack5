@@ -1,10 +1,14 @@
 const webpack = require('webpack');
-const {merge} = require('webpack-merge');
+const path = require('path');
+const { merge } = require('webpack-merge');
 
 const commonConfig = require('./webpack.common');
 
 webpack(merge(commonConfig, {
-    mode: 'production'
-}), (err, stats) => {
-    console.log(err, stats)
-})
+    mode: 'production',
+    entry: './src/main.js',
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, '../dist')
+    },
+}))
