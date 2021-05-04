@@ -11,4 +11,6 @@ webpack(merge(commonConfig, {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
-}))
+}), (err, stats) => {
+    console.log(err)
+})
